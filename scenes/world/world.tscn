@@ -1,0 +1,115 @@
+[gd_scene load_steps=15 format=3 uid="uid://7orbv8458xlp"]
+
+[ext_resource type="PackedScene" uid="uid://dmnn08xjnfbom" path="res://scenes/player/player.tscn" id="1_0ssri"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_u724a"]
+[ext_resource type="PackedScene" uid="uid://b10md5wj4eckx" path="res://scenes/mob/mob.tscn" id="2_3fkni"]
+[ext_resource type="Texture2D" uid="uid://dpom2h3ytobu" path="res://graphics/ground/dirt.png" id="3_cqi35"]
+[ext_resource type="PackedScene" uid="uid://8ch47lb5iree" path="res://scenes/bed/bed.tscn" id="3_dkui5"]
+[ext_resource type="Texture2D" uid="uid://7ompl1i8b4o4" path="res://graphics/decals/Ground_02.2.png" id="3_idfqg"]
+[ext_resource type="Texture2D" uid="uid://stxnnan3tq6l" path="res://graphics/decals/dirt_patch.png" id="4_fvkfw"]
+[ext_resource type="Texture2D" uid="uid://iso6mqvest7e" path="res://graphics/ground/stones.png" id="4_qkrnt"]
+[ext_resource type="PackedScene" uid="uid://dcef3jx14gug2" path="res://scenes/platform_white/platform_white.tscn" id="6_m2vqi"]
+[ext_resource type="Texture2D" uid="uid://dbi2mypubihmq" path="res://graphics/tilesets/outside_walls.png" id="7_3j7hg"]
+[ext_resource type="Texture2D" uid="uid://chmydssqxs7gy" path="res://graphics/tilesets/soil.png" id="8_1pb2h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vnnb5"]
+resource_name = "walls"
+texture = ExtResource("7_3j7hg")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wbso6"]
+resource_name = "Soil"
+texture = ExtResource("8_1pb2h")
+texture_region_size = Vector2i(390, 390)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_l6g38"]
+tile_size = Vector2i(390, 390)
+sources/0 = SubResource("TileSetAtlasSource_vnnb5")
+sources/1 = SubResource("TileSetAtlasSource_wbso6")
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_u724a")
+
+[node name="PlatformWhite" parent="." instance=ExtResource("6_m2vqi")]
+position = Vector2(1670, 200)
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="StoneSprite" type="Sprite2D" parent="Node2D"]
+texture_repeat = 2
+texture = ExtResource("4_qkrnt")
+region_enabled = true
+region_rect = Rect2(-10868.5, 37.8007, 22974.9, 1215.2)
+
+[node name="Deco1" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.929412, 0.596078, 0, 1)
+position = Vector2(680, -320)
+scale = Vector2(0.522585, 0.522585)
+texture = ExtResource("4_fvkfw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+visible = false
+texture_repeat = 2
+position = Vector2(701, -317)
+texture = ExtResource("3_cqi35")
+region_enabled = true
+region_rect = Rect2(-120, -16, 536, 440)
+
+[node name="HollyWater" type="Sprite2D" parent="Node2D"]
+position = Vector2(695, -309)
+scale = Vector2(0.483108, 0.483108)
+texture = ExtResource("3_idfqg")
+
+[node name="TileMap" type="TileMap" parent="Node2D"]
+tile_set = SubResource("TileSet_l6g38")
+format = 2
+layer_0/name = "Soil"
+layer_0/tile_data = PackedInt32Array(65536, 65537, 0, 65537, 65537, 0, 131071, 65537, 0, 131070, 65537, 0, 65538, 131073, 0, 131069, 1, 0, 65541, 65537, 2, 65542, 65537, 2, 65543, 65537, 2, 65544, 65537, 2, 65545, 65537, 2, 65546, 131073, 2, 65540, 1, 2, 4, 1, 1, -65532, 1, 1, -131068, 1, 0, -131067, 65537, 0, -131066, 65537, 1, -196602, 1, 1, -262138, 1, 0, -262137, 65537, 0, -262136, 65537, 0, -262135, 65537, 0, -262134, 131073, 0, -196598, 131073, 1, -131062, 131073, 1, -65526, 131073, 1, 10, 131073, 1, -65529, 65537, 1, -131065, 65537, 1, -196601, 65537, 1, -196600, 65537, 1, -131064, 65537, 1, -65528, 65537, 1, 8, 65537, 1, 7, 65537, 1, 6, 65537, 1, -65530, 65537, 1, -65531, 65537, 1, 5, 65537, 1, 9, 65537, 1, -65527, 65537, 1, -131063, 65537, 1, -196599, 65537, 1)
+layer_1/name = "Walls"
+layer_1/tile_data = PackedInt32Array(65537, 65536, 0, 65536, 65536, 0, 131071, 65536, 0, 131070, 65536, 0, 65538, 131072, 2, 131069, 65536, 2, -65539, 65536, 1, -65538, 0, 1342177282, -65537, 0, 1342177282, -131072, 0, 1342177282, -131071, 0, 1342177282, -131070, 0, 1342177282, -131069, 131072, 1, 3, 131072, 2, 2, 65536, 1, -65533, 0, 2, -7, 65537, 0, -6, 131073, 0, -8, 1, 0, 65528, 1, 2, 65529, 65537, 2, 65530, 131073, 2)
+
+[node name="Bed" parent="." instance=ExtResource("3_dkui5")]
+position = Vector2(321, 875)
+
+[node name="Player" parent="." instance=ExtResource("1_0ssri")]
+position = Vector2(1662, 195)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false
+position_smoothing_speed = 4.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.96
+drag_top_margin = 0.93
+drag_right_margin = 0.7
+drag_bottom_margin = 0.93
+editor_draw_drag_margin = true
+
+[node name="Mob" parent="." instance=ExtResource("2_3fkni")]
+position = Vector2(592, 218)
+
+[connection signal="entered_body" from="PlatformWhite" to="." method="_on_platform_white_entered_body"]
+[connection signal="leaved_body" from="PlatformWhite" to="." method="_on_platform_white_leaved_body"]
+[connection signal="just_attacked" from="Player" to="." method="_on_player_just_attacked"]
+[connection signal="skill_1" from="Player" to="." method="_on_player_skill_1"]
+[connection signal="skill_2" from="Player" to="." method="_on_player_skill_2"]

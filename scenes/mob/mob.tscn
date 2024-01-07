@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b10md5wj4eckx"]
+
+[ext_resource type="Texture2D" uid="uid://bwbeneey7la1k" path="res://graphics/mob/slime_orange.png" id="1_0v5rm"]
+[ext_resource type="Script" path="res://scripts/mob.gd" id="1_3jr6m"]
+[ext_resource type="Texture2D" uid="uid://cyk0p5volxhrr" path="res://graphics/mob/slime_hurt_angry.png" id="2_p0e5v"]
+
+[node name="Mob" type="CharacterBody2D"]
+script = ExtResource("1_3jr6m")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(0, -45, 10, -45, 21, -42, 30, -37, 40, -29, 47, -20, 51, -11, 54, 0, 54, 24, 49, 35, 41, 42, 35, 45, -34, 45, -41, 42, -49, 35, -54, 26, -54, -1, -51, -12, -46, -21, -40, -29, -31, -37, -22, -42, -12, -45)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0v5rm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+
+[node name="SlimeHurtAngry" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
+texture = ExtResource("2_p0e5v")

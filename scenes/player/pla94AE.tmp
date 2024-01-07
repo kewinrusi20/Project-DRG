@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmnn08xjnfbom"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_rdaem"]
+[ext_resource type="Texture2D" uid="uid://c5b0aavv5qb57" path="res://graphics/player/smile_blue.png" id="1_ylofx"]
+[ext_resource type="Texture2D" uid="uid://c57xbh73735k7" path="res://graphics/player/face.png" id="3_eyunm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yuu3r"]
+radius = 36.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_rdaem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_yuu3r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ylofx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(1, -1)
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("3_eyunm")
+
+[node name="BallRedMarkers" type="Node2D" parent="."]
+
+[node name="Marker2D1" type="Marker2D" parent="BallRedMarkers"]
+position = Vector2(-120, -100)
+
+[node name="Marker2D2" type="Marker2D" parent="BallRedMarkers"]
+position = Vector2(-80, -100)
+
+[node name="Marker2D3" type="Marker2D" parent="BallRedMarkers"]
+position = Vector2(-40, -100)
+
+[node name="Marker2D4" type="Marker2D" parent="BallRedMarkers"]
+position = Vector2(0, -100)
+
+[node name="Marker2D5" type="Marker2D" parent="BallRedMarkers"]
+position = Vector2(40, -100)
+
+[node name="Marker2D6" type="Marker2D" parent="BallRedMarkers"]
+position = Vector2(80, -100)
+
+[node name="Marker2D7" type="Marker2D" parent="BallRedMarkers"]
+position = Vector2(120, -100)
+
+[node name="DeactivatedMarker" type="Node2D" parent="."]
+visible = false
+
+[node name="Marker2D12" type="Marker2D" parent="DeactivatedMarker"]
+position = Vector2(95, 30)
+
+[node name="Marker2D13" type="Marker2D" parent="DeactivatedMarker"]
+position = Vector2(80, 60)
+
+[node name="Marker2D14" type="Marker2D" parent="DeactivatedMarker"]
+position = Vector2(60, 80)
+
+[node name="Marker2D15" type="Marker2D" parent="DeactivatedMarker"]
+position = Vector2(30, 95)
+
+[node name="Marker2D16" type="Marker2D" parent="DeactivatedMarker"]
+position = Vector2(0, 100)
+
+[node name="Marker2D17" type="Marker2D" parent="DeactivatedMarker"]
+position = Vector2(-30, 95)
+
+[node name="Marker2D18" type="Marker2D" parent="DeactivatedMarker"]
+position = Vector2(-60, 80)
+
+[node name="Marker2D19" type="Marker2D" parent="DeactivatedMarker"]
+position = Vector2(-80, 60)
+
+[node name="Marker2D20" type="Marker2D" parent="DeactivatedMarker"]
+position = Vector2(-95, 30)
+
+[node name="Marker2D11" type="Marker2D" parent="DeactivatedMarker"]
+position = Vector2(100, 0)
+
+[node name="Marker2D10" type="Marker2D" parent="DeactivatedMarker"]
+position = Vector2(95, -30)
+
+[node name="Marker2D9" type="Marker2D" parent="DeactivatedMarker"]
+position = Vector2(80, -60)
+
+[node name="Marker2D8" type="Marker2D" parent="DeactivatedMarker"]
+position = Vector2(60, -80)
+
+[node name="BlastRedMarkers" type="Node2D" parent="."]
+
+[node name="Marker2D1" type="Marker2D" parent="BlastRedMarkers"]
+position = Vector2(-16, -9)
+
+[node name="Marker2D2" type="Marker2D" parent="BlastRedMarkers"]
+position = Vector2(15, -9)
+
+[node name="Marker2D3" type="Marker2D" parent="BlastRedMarkers"]
+position = Vector2(4, -12)
+
+[node name="Marker2D4" type="Marker2D" parent="BlastRedMarkers"]
+position = Vector2(-5, -12)

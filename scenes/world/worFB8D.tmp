@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://7orbv8458xlp"]
+
+[ext_resource type="PackedScene" uid="uid://dmnn08xjnfbom" path="res://scenes/player/player.tscn" id="1_0ssri"]
+[ext_resource type="PackedScene" uid="uid://b10md5wj4eckx" path="res://scenes/mob/mob.tscn" id="2_3fkni"]
+[ext_resource type="PackedScene" uid="uid://8ch47lb5iree" path="res://scenes/bed/bed.tscn" id="3_dkui5"]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_0ssri")]
+position = Vector2(726, 509)
+
+[node name="Mob" parent="." instance=ExtResource("2_3fkni")]
+position = Vector2(756, 196)
+
+[node name="Bed" parent="." instance=ExtResource("3_dkui5")]
+position = Vector2(1459, 324)

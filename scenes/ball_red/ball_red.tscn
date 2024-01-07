@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://di7f1abpnrbhs"]
+
+[ext_resource type="Script" path="res://scripts/ball_red.gd" id="1_15qfv"]
+[ext_resource type="Texture2D" uid="uid://be3p86rrw6o5" path="res://graphics/mob/slime_red.png" id="2_jogqh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdab7"]
+radius = 15.0
+
+[node name="BallRed" type="RigidBody2D"]
+gravity_scale = 0.0
+linear_damp = 16.0
+script = ExtResource("1_15qfv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jogqh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tdab7")

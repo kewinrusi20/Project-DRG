@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk20rm7wd7iom"]
+
+[ext_resource type="Texture2D" uid="uid://be3p86rrw6o5" path="res://graphics/mob/slime_red.png" id="1_ngbjw"]
+[ext_resource type="Script" path="res://scripts/slime_red.gd" id="1_qsnyi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i787m"]
+radius = 15.0333
+
+[node name="slime_red" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_qsnyi")
+
+[node name="SlimeRedCollision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_i787m")
+
+[node name="SlimeRedImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_ngbjw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

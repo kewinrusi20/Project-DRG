@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://7orbv8458xlp"]
+
+[ext_resource type="PackedScene" uid="uid://dmnn08xjnfbom" path="res://scenes/player/player.tscn" id="1_0ssri"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_u724a"]
+[ext_resource type="PackedScene" uid="uid://b10md5wj4eckx" path="res://scenes/mob/mob.tscn" id="2_3fkni"]
+[ext_resource type="Texture2D" uid="uid://byidgwyc3e4vm" path="res://graphics/ground/GroundMix.png" id="2_axujq"]
+[ext_resource type="PackedScene" uid="uid://8ch47lb5iree" path="res://scenes/bed/bed.tscn" id="3_dkui5"]
+[ext_resource type="PackedScene" uid="uid://dcef3jx14gug2" path="res://scenes/platform_white/platform_white.tscn" id="6_m2vqi"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_u724a")
+
+[node name="GroundSprite" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_axujq")
+
+[node name="PlatformWhite" parent="." instance=ExtResource("6_m2vqi")]
+position = Vector2(1146, 274)
+
+[node name="Bed" parent="." instance=ExtResource("3_dkui5")]
+position = Vector2(1666, 456)
+
+[node name="Player" parent="." instance=ExtResource("1_0ssri")]
+position = Vector2(980, 510)
+
+[node name="Mob" parent="." instance=ExtResource("2_3fkni")]
+position = Vector2(756, 196)
+
+[connection signal="entered_body" from="PlatformWhite" to="." method="_on_platform_white_entered_body"]
+[connection signal="leaved_body" from="PlatformWhite" to="." method="_on_platform_white_leaved_body"]
+[connection signal="just_attacked" from="Player" to="." method="_on_player_just_attacked"]
+[connection signal="skill_1" from="Player" to="." method="_on_player_skill_1"]

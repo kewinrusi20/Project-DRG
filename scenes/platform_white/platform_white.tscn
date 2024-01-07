@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcef3jx14gug2"]
+
+[ext_resource type="Texture2D" uid="uid://dkjd0lxq5ig0t" path="res://graphics/ground/platform_white.png" id="1_ix703"]
+[ext_resource type="Script" path="res://scripts/platform_white.gd" id="1_pj53h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kaf5f"]
+size = Vector2(200, 200)
+
+[node name="PlatformWhite" type="Node2D"]
+script = ExtResource("1_pj53h")
+
+[node name="PlatformWhite_Area" type="Area2D" parent="."]
+
+[node name="PlatformWhite_CShape" type="CollisionShape2D" parent="PlatformWhite_Area"]
+visible = false
+shape = SubResource("RectangleShape2D_kaf5f")
+
+[node name="PlatformWhite_Sprite" type="Sprite2D" parent="PlatformWhite_Area"]
+texture = ExtResource("1_ix703")
+
+[connection signal="body_entered" from="PlatformWhite_Area" to="." method="_on_platform_white_area_body_entered"]
+[connection signal="body_exited" from="PlatformWhite_Area" to="." method="_on_platform_white_area_body_exited"]
