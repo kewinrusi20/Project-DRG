@@ -29,8 +29,15 @@ func _process(delta):
 	print(get_local_mouse_position())
 	
 
-func _ready():
-	fix_starting_position()
+
+
+
+
+
+
+
+
+
 
 
 # ------------------------------------------------------------------------------------------------------------
@@ -80,6 +87,14 @@ func register_w_input():
 			skill_2.emit(spawn_position, direction, speed)
 
 
+
+
+
+
+
+
+
+
 # ------------------------------------------------------------------------------------------------------------
 # ROTATE
 var rotation_to_position: bool = true
@@ -103,7 +118,6 @@ func spin_boy():
 
 
 
-
 # ------------------------------------------------------------------------------------------------------------
 # ATTACK
 signal just_attacked
@@ -115,6 +129,13 @@ func register_left_click():
 		# Stop Movement
 		if position.distance_to(position_goal) < 200:
 			keep_moving = false
+
+
+
+
+
+
+
 
 
 
@@ -153,7 +174,17 @@ func switch_scale():
 	if scale_switcher: scale_switcher = false
 	else: scale_switcher = true
 
+
+
+
+
+
+
+
+
+
 # ------------------------------------------------------------------------------------------------------------
+# MOVEMENT
 # WASD - MOVEMENT
 # ATTRIBUTES
 # MAIN METHOD
@@ -167,14 +198,21 @@ func move_body(direction, delta):
 	position += direction * SPEED * delta
 
 
-# CLICK TO MOVE -------------------------------------------------s
+
+# CLICK TO MOVE -------------------------------------------------
 var position_goal: Vector2
 var keep_moving: bool = true
 
-func fix_starting_position():
+var fix_starting_position: bool = true
+func set_fix_starting_position():
 	position_goal = position
 
 func manage_move_to_click():
+	# Fix Position
+	if fix_starting_position:
+		set_fix_starting_position()
+		fix_starting_position = false
+	
 	# Move
 	if position.distance_to(position_goal) > 3 and keep_moving:
 		var direction: Vector2 = (position_goal - position).normalized()
@@ -193,7 +231,16 @@ func register_s_input():
 	if Input.is_action_just_pressed("S"):
 		keep_moving = false
 
-# TELEPORT -----------------------------------------------------
+
+
+
+
+
+
+
+
+
+ #TELEPORT -----------------------------------------------------
 var temp001
 func register_f_input(boundary):
 	if Input.is_action_just_pressed("F"):
